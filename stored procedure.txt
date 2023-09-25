@@ -1,0 +1,200 @@
+/****** Object:  StoredProcedure [dbo].[Update_prod_data]    Script Date: 11/6/2022 11:33:08 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:      <Author, , Name>
+-- Create Date: <Create Date, , >
+-- Description: <Description, , >
+-- =============================================
+ALTER PROCEDURE [dbo].[Update_prod_data]
+AS
+BEGIN
+    -- SET NOCOUNT ON added to prevent extra result sets from
+    -- interfering with SELECT statements.
+    SET NOCOUNT ON
+
+      delete from [prod_data]
+  insert into [prod_data] ([ind],[material_id],[name],[quantity],[price],[cost],[date])
+
+
+SELECT cast([ind] as int),      
+case
+when	[name] like N'%варочная поверхность%' then	1
+when	[name] like N'%вытяжка%' then	2
+when	[name] like N'%духовка%' or [name] like N'духовой шкаф%' then	3
+when	[name] like N'%посудомойка%' or [name] like N'посудомоечн%' then	4
+when	[name] like N'%стиралка%' or [name] like N'стиральн%' then	5
+when	[name] like N'%холодильник%' then	6
+when	[name] like N'%микроволновка%' or [name] like N'микроволновая печь%' then	7
+when	[name] like N'%робот пылесос%' then	8
+when	[name] like N'%тостер%' then	9
+when	[name] like N'%чайник%' then	10
+when	[name] like N'%телевизор%' then	11
+when	[name] like N'%стремянка%' then	12
+when	[name] like N'%мешки%' or [name] like N'%мешок%' then	13
+when	[name] like N'%сушилк%' then	14
+when	[name] like N'%ведро%' then	15
+when	[name] like N'%таз%' then	16
+when	[name] like N'%гофр%' then	17
+when	[name] like N'%веник%' then	18
+when	[name] like N'%ручк%' and [name] like N'%дверн%' then	19
+when	[name] like N'%добор%' then	20
+when	[name] like N'%задвижк%' then	21
+when	[name] like N'%двер%' or [name] like N'%комплект%' then	22
+when	[name] like N'%монтажн%' then	23
+when	[name] like N'%накладка на замок%' then	24
+when	[name] like N'%наличник%' then	25
+when	[name] like N'%откос%' then	26
+when	[name] like N'%полотно%' then	27
+when	[name] like N'%стопор%' then	28
+when	[name] like N'%москит%' then	29
+when	([name] like N'%заглушк%' or [name] like N'%накладк%') and [name] like N'%подоконник%'	then	30
+when	[name] like N'%подоконник%' then	31
+when	[name] like N'%галтел%' then	32
+when	[name] like N'%валик%' then	33
+when	[name] like N'%нажда%' or [name] like N'%шлиф%' or [name] like N'%корочк%' then	34
+when	[name] like N'%доска шлиф%' then	35
+when	[name] like N'%кист%' then	36
+when	[name] like N'%нож%' then	37
+when	[name] like N'%перчатки%' then	38
+when	[name] like N'%рукоятка%' then	39
+when	[name] like N'%скотч%' and [name] like N'%бумаж%' then	40
+when	[name] like N'%удочка%' then	41
+when	[name] like N'%шпатель%' then	42
+when	[name] like N'%бур%' then	43
+when	[name] like N'%диск%' or [name] like N'%барс%' or [name] like N'%черепашка%' then	44
+when	[name] like N'%лезвия%' then	45
+when	[name] like N'%полотно по металлу%' then	45
+when	[name] like N'%разметоч%' and [name] like N'%порошок%' then	46
+when	[name] like N'%правило%' then	47
+when	[name] like N'%питка%' or [name] like N'%шнур разметочный%' then	48
+when	([name] like N'%писталет%' or [name] like N'%пистолет%') and [name] like N'%пен%' then		49
+when	([name] like N'%писталет%' or [name] like N'%пистолет%') and [name] like N'%силикон%' then	50
+when	[name] like N'%багет%' or [name] like N'%кафель%' or [name] like N'%панно%' 
+	or [name] like N'%плитка%' then	51
+when	[name] like N'%керамогранит%' then	52
+when	[name] like N'%люк%' then	53
+when	[name] like N'%анкер%' or [name] = N'6 на 40' then	54
+when	[name] like N'%анкер%' and [name] like N'%клин%' then	55
+when	[name] like N'%изолента%' then	56
+when	[name] like N'%серпянка%' then	57
+when	[name] like N'%парашют%' or [name] like N'%зонтик%' then	58
+when	[name] like N'%клипса%' then	59
+when	[name] like N'%свп%' and [name] like N'%ворота%' then	60
+when	[name] like N'%свп%' and [name] like N'%клин%' then	61
+when	[name] like N'%кронштейны%' then	62
+when	[name] like N'%уголок%' then	63
+when	[name] like N'%перфориров%' then	64
+when	[name] like N'%шина для кронштейн%' then	65
+when	[name] like N'%саморезы%' then	66
+when	[name] like N'%шуруп%' then	67
+when	[name] like N'%хомут%' then	68
+when	[name] like N'%краск%' or [name] like N'%водоэмульсионная%' then	69
+when	[name] like N'%герметик%' then	70
+when	[name] like N'%силикон%' then	71
+when	([name] like N'%бетон%' and [name] like N'%контакт%') or 	[name] like N'%грунтовка%' then	72
+when	[name] like N'%мастика%' then	73
+when	[name] like N'%akfix%'  or 	[name] like N'%акфикс' then	74
+when	([name] like N'%клей%' and [name] like N'%стеклохолст%')
+		or ([name] like N'%клей%' and [name] like N'%glass%') then	75
+when	[name] like N'%клей%' and [name] like N'%идкие гвозди%' then	76
+when	[name] like N'%колер%' then	77
+when	[name] like N'%пена%' then	78
+when	[name] like N'%пена%' and [name] like N'%клей 60 секунд%' then	79
+when	[name] like N'%газлифт%' then	80
+when	[name] like N'%зеркало%' then	81
+when	[name] like N'%кухонный гарнитур%' then	82
+when	[name] like N'%ножки%' then	83
+when	[name] like N'%стол%' then	84
+when	[name] like N'%стулья%' then	85
+when	[name] like N'%тумба%' and  [name] like N'%раковин%' or  	[name] like N'%умывальник%' then	86
+when	[name] like N'%шкаф%' then	87
+when	[name] like N'%ламинат%' then	88
+when	[name] like N'%пленк%' then	89
+when	[name] like N'%плинтус%' then	90
+when	[name] like N'%подложка%' then	91
+when	[name] like N'%натяжной потоло%' then	92
+when	[name] like N'%нитка%'  or 	[name] like N'%нить%' then	93
+when	[name] like N'%прокладк%' then	94
+when	([name] like N'%фум%'  or 	[name] like N'%фун%') and [name] like N'%лент%' then	95
+when	[name] like N'%ванн%' then	96
+when	[name] like N'%инсталляц%' then	97
+when	[name] like N'%мойка кухонная%' then	98
+when	[name] like N'%полотенцесушитель%' then	99
+when	[name] like N'%раковина%' then	100
+when	[name] like N'%сиден%' or [name] like N'%унитаз%' then	101
+when	[name] like N'%вентилятор%' then	102
+when	[name] like N'%вытяжк%' then	103
+when	[name] like N'%сифон%' then	104
+when	[name] like N'%гигиеническ%' then	105
+when	[name] like N'%смесител%' then	106
+when	[name] like N'%отвод%' then	107
+when	[name] like N'%крестовин%' then	108
+when	[name] like N'%кранник%' then	109
+when	[name] like N'%тройник%' then	110
+when	[name] like N'%труб%' then	111
+when	[name] like N'%посудомойк%' and [name] like N'%переходник%' then	112
+when	[name] like N'%заглушк%' then	112
+when	[name] like N'%тройник' and [name] like N'%100%' then	113
+when	[name] like N'%для подключения сантехники (отвод, тройник и тд)		трубы%' then	114
+when	[name] like N'%кран%' then	115
+when	[name] like N'%шланг%' then	116
+when	[name] like N'%унитаз%' then	117
+when	[name] like N'%гкл%' or 	[name] like N'%гипсокартон%' then	118
+when	([name] like N'%гкл%' or 	[name] like N'%гипсокартон') and  [name] like N'%вл%' then	119
+when	[name] like N'%подвес%' then	120
+when	[name] like N'%мая%' then	121
+when	[name] like N'%27%' or [name] = N'п 6 на 3' or [name] like N'%профил%' or [name] like N'%направляющий%' then	122
+when	[name] like N'%стеклохолст%' then	123
+when	[name] like N'%плит%' and [name] like N'%клей%' then	124
+when	[name] like N'%экопол%' or [name] like N'%налив%' then	125
+when	[name] like N'%стяжк%' then	126
+when	[name] like N'%фуга%' or [name] like N'%фуген%' then	127
+when	[name] like N'%глатт%' or [name] like N'%алинекс%' or ([name] like N'%шпатлевка%' and [name] like N'%гипс%')	then	128
+when	[name] like N'%шитрок%' or [name] like N'%sheetrock%' then	129
+when	[name] like N'%ALIT%' or [name] like N'%алит%' or ([name] like N'%шпатлевка%' and [name] like N'%финиш%') then	129
+when	[name] like N'%штукатурка%' and ( [name] like N'%декор%' or [name] like N'%дождик%') then	130
+when	[name] like N'%ротгипс%' or 	[name] like N'%ротбанд%' or 	[name] like N'%rotband' or ([name] like N'%штукатур%' and [name] like N'%гипс%')	then	131
+when	[name] like N'%пеноплекс%' or 	[name] like N'%пенаплекс%'  or 	[name] like N'%теплоизоляц%' then	132
+when	[name] like N'%доставка%' then	133
+when	[name] like N'%перевоз%' and [name] like N'%мебел%' then	134
+when	[name] like N'%подключен%' then	135
+when	[name] like N'%грузк%' and [name] like N'%мебел%' then	136
+when	[name] like N'%ремонт%' and [name] like N'%домофон%' then	137
+when	[name] like N'%ремонт%' and [name] like N'%работ%' then	138
+when	[name] like N'%сборка%' then	139
+when	[name] like N'%закон%' and [name] like N'%переплан%' then	140
+when	[name] like N'%установка%' and [name] like N'%освещен%' then	141
+when	[name] like N'%установка%' and [name] like N'%сантех%' then	142
+when	[name] like N'%установка%' and [name] like N'%телевиз%' then	143
+when	[name] like N'%ламп%' or [name] like N'%юстр%'  then	144
+when	[name] like N'%коробк%' then	145
+when	[name] like N'%подрозетник%' then	146
+when	[name] like N'%щит%' and ( [name] like N'%wi%' or [name] like N'%вай%')	then	147
+when	[name] like N'%сиз%' or [name] like N'%зажим%' or [name] like N'%изолир%' then	148
+when	[name] like N'%патрон%' then	149
+when	[name] like N'%автомат%' then	150
+when	[name] like N'%ютп%' or [name] like N'%UTP%' then	151
+when	[name] like N'%ввг%' then	152
+when	[name] like N'%бра%' then	153
+when	[name] like N'%стаканчик%' or [name] like N'%спот%' then	154
+when	[name] like N'%трек%' then	155
+when	[name] like N'%выключател%' then	156
+when	[name] like N'%выключател%' and [name] like N'%проходн%' then	157
+when	[name] like N'%розетк%' then	158
+end as material_id,
+
+	  [name] 
+      ,cast(round(cast([quantity] as float), 0) as int)
+      ,cast(round(cast([price] as float), 0) as int)
+      ,cast(round(cast([cost] as float), 0) as int)
+      ,case
+	  when [date] is null then cast(getdate() as date)
+	  else  convert(date, [date], 104)
+	  end
+
+FROM [dbo].[raw_data]
+
+END
